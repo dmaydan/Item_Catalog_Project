@@ -117,3 +117,11 @@ li, ul {
     margin:0;
     padding:0;
 }
+@media only screen and (max-width: 800px){
+	.header-grid, .flash, .main-grid {
+		width: 100%;
+	}
+	body {
+		width: 100%;
+	}
+}
