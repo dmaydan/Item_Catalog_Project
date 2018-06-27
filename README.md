@@ -3,14 +3,16 @@ The is my project submission for Udacity's Full Stack Web Developer nanodegree's
 <h2>Outline</h2>
 <ol>
 <li><a href="#demo">Demo</a></li>
+<li><a href="#run">Run on your Own</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
 <li><a href="#backend">Backend</a></li>
 <li><a href="#frontend">Frontend</a></li>
 <li><a href="#interactive">Interactive</a></li>
-<li><a href="#run">Run on your Own</a></li>
 </ol>
 <h2 id="demo">Demo</h2>
 A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com
+<h2 id="run">Run your Own</h2>
+Note: in order to actually run this website on your own, you would need to create and fill a database and get google oauth2 credentials. 
 <h2 id="screenshots">Screenshots</h2>
 <h3>Logged Out</h3>
 <h4>Catalog</h4>
@@ -56,5 +58,4 @@ A media query is used to ensure that content looks great on all display sizes.
 The page is layed out with the CSS Grid
 <h2 id="interactive">Interactive</h2>
 After a user completes an action (login, logout, create/edit/delete item) and the site redirects, a flash message is displayed to the user to confirm that his/her action was processed.
-<h2 id="run">Run your Own</h2>
-Note: in order to actually run this website on your own, you would need to create and fill a database and get google oauth2 credentials. 
+
