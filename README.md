@@ -3,16 +3,14 @@ The is my project submission for Udacity's Full Stack Web Developer nanodegree's
 <h2>Outline</h2>
 <ol>
 <li><a href="#demo">Demo</a></li>
-<li><a href="#run">Run on your Own</a></li>
 <li><a href="#screenshots">Screenshots</a></li>
 <li><a href="#backend">Backend</a></li>
 <li><a href="#frontend">Frontend</a></li>
 <li><a href="#interactive">Interactive</a></li>
+<li><a href="#run">Run on your Own</a></li>
 </ol>
 <h2 id="demo">Demo</h2>
 A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com
-<h2 id="run">Run your Own</h2>
-Note: in order to actually run this website on your own, you would need to create and fill a database and get google oauth2 credentials. 
 <h2 id="screenshots">Screenshots</h2>
 <h3>Logged Out</h3>
 <h4>Catalog</h4>
@@ -58,4 +56,13 @@ A media query is used to ensure that content looks great on all display sizes.
 The page is layed out with the CSS Grid
 <h2 id="interactive">Interactive</h2>
 After a user completes an action (login, logout, create/edit/delete item) and the site redirects, a flash message is displayed to the user to confirm that his/her action was processed.
-
+<h2 id="run">Run your Own</h2>
+In order to actually run this website on your own, you need to take some setup steps. 
+<h3>OAuth2</h3>
+First, you will need to acquire google oauth2 credentials.
+<ol>
+<li>Go to https://console.developers.google.com/ and create a new project.</li>
+<li>From the dashboard, go to credentials. Under the credentials tab, click on OAuth Consent Screen and fill in the necessary information. Now, return to the original credentials tab and click create credentials - OAuth client ID - Web Application. Now, fill in the javascript origins and the redirect URIs</li>
+<li>Download the client ID file, put it in the repo with the rest of the code, rename it is as client_secrets.json</li>
+  <li>Copy the actual client ID into the login.html file where it says <code></code></li>
+</ol>
