@@ -1,5 +1,5 @@
 <h1>Item Catalog</h1>
-The is my project submission for Udacity's Full Stack Web Developer nanodegree's item catalog project. The goal of the project was to develop an application that provides a list of items within a variety of categories as well as to provide a user registration and authentication system. Registered users have the ability to post, edit and delete their own items. For every item, the website also offers a JSON endpoint. In order to access this endpoint, simply add `'JSON/'` to the end of the URL for a specific item.
+The is my project submission for Udacity's Full Stack Web Developer nanodegree's item catalog project. The goal of the project was to develop an application that provides a list of items within a variety of categories as well as to provide a user registration and authentication system. Registered users have the ability to post, edit and delete their own items. For every item, the website also offers a JSON endpoint. In order to access this endpoint, simply add <code>'JSON/'</code> to the end of the URL for a specific item.
 <h2>Outline</h2>
 <ol>
 <li><a href="#demo">Demo</a></li>
