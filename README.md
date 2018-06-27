@@ -63,6 +63,5 @@ First, you will need to acquire google oauth2 credentials.
 <ol>
 <li>Go to https://console.developers.google.com/ and create a new project.</li>
 <li>From the dashboard, go to credentials. Under the credentials tab, click on OAuth Consent Screen and fill in the necessary information. Now, return to the original credentials tab and click create credentials - OAuth client ID - Web Application. Now, fill in the javascript origins and the redirect URIs</li>
-<li>Download the client ID file, put it in the repo with the rest of the code, rename it is as client_secrets.json</li>
-  <li>Copy the actual client ID into the login.html file where it says <code></code></li>
+<li>Download the client ID file, put it in the repo with the rest of the code, rename it is as client_secrets.json</li><li>Copy the actual client ID into the login.html file where it says <code>[your_client_id]</code></li>
 </ol>
