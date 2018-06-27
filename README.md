@@ -12,6 +12,8 @@ The server is built on the python web framework [Flask](http://flask.pocoo.org).
 The website uses a postresql database with 3 tables: user, category, item. 
 ### Authentication
 Google's OAuth2 is implemented as a third party authentication and authorization service.
+### Authorization
+A user can only create an item if he/she is logged in, and a user can only edit item that he/she created. If a logged out user tries to create/edit/delete an item, he/she will be redirected to the login page. If a logged in user tries edit/delete an item he/she did not create, he/she will receive a javascript warning and not be able to complete the action.
 ## Frontend
 ### Responsive
 A media query is used to ensure that content looks great on all display sizes.
