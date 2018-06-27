@@ -7,7 +7,7 @@ The is my project submission for Udacity's Full Stack Web Developer nanodegree's
 <li><a href="#backend">Backend</a></li>
 <li><a href="#frontend">Frontend</a></li>
 <li><a href="#interactive">Interactive</a></li>
-<li><a href="#run">run</a></li>
+<li><a href="#run">Run on your Own</a></li>
 </ol>
 <h2 id="demo">Demo</h2>
 A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com
