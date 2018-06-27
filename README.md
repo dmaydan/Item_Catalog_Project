@@ -4,7 +4,8 @@ The is my project submission for Udacity's Full Stack Web Developer nanodegree's
 A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com
 ## Screenshots
 ### Logged In
-
+#### Catalog
+[](readme_images/out_catalog.png)
 ## Backend
 ### Server
 The server is built on the python web framework [Flask](http://flask.pocoo.org). 
