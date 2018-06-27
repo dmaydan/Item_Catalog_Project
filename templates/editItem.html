@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='new-item.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body class="wrapper">
+		<header class="outer-header">
+			<div  class="header-grid">
+				<h1 class="header-logo">Catalog App</h1>
+				<div class="header-login"><a href="/logout" class="button">Logout</a></div>
+			</div>
+		</header>
+		<form action="" method="POST" class="main-grid">
+			<h2>Edit Item</h2>
+			<label for="name">Title</label>
+			<input type ="text" maxlength="50"  name="name" value="{{ item.name }}">
+
+			<label for="description">Description</label>
+			<input maxlength="50" name="description" type="text" value="{{ item.description }}"></input>
+			<label for="category">Category</label>
+			<select name="category">
+				{% if category_name == 'Soccer' %}
+				<option value="soccer" selected="selected">Soccer</option>
+				{% else %}
+				<option value="soccer">Soccer</option>
+				{% endif %}
+
+
+				{% if category_name == 'Basketball' %}
+				<option value="basketball" selected="selected">Basketball</option>
+				{% else %}
+				<option value="basketball">Basketball</option>
+				{% endif %}
+
+				{% if category_name == 'Baseball' %}
+				<option value="baseball" selected="selected">Baseball</option>
+				{% else %}
+				<option value="baseball">Baseball</option>
+				{% endif %}
+
+				{% if category_name == 'Frisbee' %}
+				<option value="frisbee" selected="selected">Frisbee</option>
+				{% else %}
+				<option value="frisbee">Frisbee</option>
+				{% endif %}
+
+				{% if category_name == 'Snowboarding' %}
+				<option value="snowboarding" selected="selected">Snowboarding</option>
+				{% else %}
+				<option value="snowboarding">Snowboarding</option>
+				{% endif %}
+
+				{% if category_name == 'Rock Climbing' %}
+				<option value="rock climbing" selected="selected">Rock Climbing</option>
+				{% else %}
+				<option value="rock climbing">Rock Climbing</option>
+				{% endif %}
+
+				{% if category_name == 'Foosball' %}
+				<option value="foosball" selected="selected">Foosball</option>
+				{% else %}
+				<option value="foosball">Foosball</option>
+				{% endif %}
+
+				{% if category_name == 'Skating' %}
+				<option value="skating" selected="selected">Skating</option>
+				{% else %}
+				<option value="skating">Skating</option>
+				{% endif %}
+
+				{% if category_name == 'Hockey' %}
+				<option value="hockey" selected="selected">Hockey</option>
+				{% else %}
+				<option value="hockey">Hockey</option>
+				{% endif %}
+			</select>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

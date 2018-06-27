@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='new-item.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body class="wrapper">
+		<header class="outer-header">
+			<div  class="header-grid">
+				<h1 class="header-logo">Catalog App</h1>
+				<div class="header-login"><a href="/logout" class="button">Logout</a></div>
+			</div>
+		</header>
+		<form action="" method="POST" class="main-grid">
+			<h2>New Item</h2>
+			<label for="name">Title</label>
+			<input type ="text" maxlength="50" name="name" placeholder="Title of the item">
+
+			<label for="description">Description</label>
+			<input type="text" maxlength="50" name="description" placeholder="Description of the item">
+
+			<label for="category">Category</label>
+			<select name="category">
+				<option value="soccer">Soccer</option>
+				<option value="basketball">Basketball</option>
+				<option value="baseball">Baseball</option>
+				<option value="frisbee">Frisbee</option>
+				<option value="snowboarding">Snowboarding</option>
+				<option value="rock climbing">Rock Climbing</option>
+				<option value="foosball">Foosball</option>
+				<option value="skating">Skating</option>
+				<option value="hockey">Hockey</option>
+			</select>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body class="wrapper">
+		<header class="outer-header">
+			<div  class="header-grid">
+				<h1 class="header-logo">Catalog App</h1>
+				<div class="header-login"><a href="/login" class="button">Login</a></div>
+			</div>
+		</header>
+		<main class="main-grid">
+			<div class="left-area">
+				<h2>Categories</h2>
+				{% for category in categoryRows %}
+				<a href="/catalog/{{ category.id }}/items/">{{ category.name }}</a>
+				<br/>
+				{% endfor %}
+			</div>
+			<div class="right-area">
+				<h2>{{ category_name }}</h2>
+				{% for item in itemRows %}
+				<a href="/catalog/{{ category_id }}/{{ item.id }}/">{{ item.name }}</a>
+				<br/>
+				{% endfor %}
+			</div>
+		</main>
+	</body>
+</html>

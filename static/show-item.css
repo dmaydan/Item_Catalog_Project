@@ -1,0 +1,35 @@
+.wrapper {
+	grid-template-areas: 
+	"header-grid"
+	"main-grid";
+}
+.main-grid {
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.main-grid p {
+	margin-right: 0;
+	margin-left: 0;
+	margin-top: 0;
+	margin-bottom: 10px;
+
+}
+.main-grid p:last-of-type {
+	margin-bottom: 0px;
+}
+.main-grid a {
+	display: inline-block;
+	border-right:solid 1px black;
+	padding-right: 7px;
+}
+.main-grid a:last-of-type {
+	border-right: none;
+	padding-left: 7px;
+	padding-right: 0px;
+}
+.edit-delete-links {
+	margin-top: 10px;
+}

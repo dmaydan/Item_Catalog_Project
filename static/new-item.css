@@ -1,0 +1,33 @@
+.wrapper {
+	grid-template-areas: 
+	"header-grid"
+	"main-grid";
+}
+.main-grid {
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+label, input, select {
+	display: block;
+}
+label {
+	margin-bottom: 3px;
+}
+input, select {
+	margin-bottom: 10px;
+}
+input[type=text] {
+	height: 30px;	
+	width: 200px;
+}
+input[type=submit] {
+	padding: 5px 10px 5px 10px;
+	margin-bottom: 0px;
+}
+p {
+	margin: 0;
+	margin-bottom: 3px;
+}

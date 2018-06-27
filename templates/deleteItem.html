@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='new-item.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body class="wrapper">
+		<header class="outer-header">
+			<div  class="header-grid">
+				<h1 class="header-logo">Catalog App</h1>
+				<div class="header-login"><a href="/logout" class="button">Logout</a></div>
+			</div>
+		</header>
+		<form action="" method="POST" class="main-grid">
+			<h2>Delete {{ item.name }}</h2>
+			<p>Are you sure you want to delete {{ item.name }}?</p>
+			<input type="submit" value="Delete">
+		</form>
+	</body>
+</html>

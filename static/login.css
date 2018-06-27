@@ -1,0 +1,9 @@
+.login-button {
+	text-align: center;
+	grid-area: login-grid;
+}
+.wrapper {
+	grid-template-areas: 
+	"header-grid"
+	"login-grid";
+}

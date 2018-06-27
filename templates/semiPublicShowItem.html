@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='show-item.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body class="wrapper">
+		<header class="outer-header">
+			<div  class="header-grid">
+				<h1 class="header-logo">Catalog App</h1>
+				<div class="header-login"><a href="/logout" class="button">Logout</a></div>
+			</div>
+		</header>
+		<main class="main-grid">
+			<h2>{{ item.name }}</h2>
+			<p>{{ item.description }}</p>
+			<p>Created by {{ creator.name }}</p>
+		</main>
+	</body>
+</html>
