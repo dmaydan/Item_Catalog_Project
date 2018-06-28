@@ -10,7 +10,7 @@ The is my project submission for Udacity's Full Stack Web Developer nanodegree's
 <li><a href="#run">Run on your Own</a></li>
 </ol>
 <h2 id="demo">Demo</h2>
-A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com
+A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com. Please give the page 20 seconds to startup because the free heroku web dyno goes to sleep after 30 minutes of inactivity.
 <h2 id="screenshots">Screenshots</h2>
 <h3>Logged Out</h3>
 <h4>Catalog</h4>
