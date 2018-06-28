@@ -224,7 +224,7 @@ def gdisconnect():
     if access_token is None:
         # Only disconnect a connected user.
         flash("The Current User Is Not Connected.")
-        return redirect('https://item-catalog-proj.herokuapp.com/catalog/')
+        return redirect('/catalog/')
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
@@ -236,11 +236,11 @@ def gdisconnect():
         del login_session['email']
 
         flash("The Current User Was Successfully Logged Out.")
-        return redirect('https://item-catalog-proj.herokuapp.com/catalog/')
+        return redirect('/catalog/')
     else:
         # For whatever reason, the given token was invalid.
         flash("The Current User Could Not Be Logged Out")
-        return redirect('https://item-catalog-proj.herokuapp.com/catalog/')
+        return redirect('/catalog/')
 
 
 @app.route('/catalog/<int:category_id>/<int:item_id>/JSON/')
@@ -280,7 +280,7 @@ def showCatalog():
 @app.route('/catalog/new/', methods=['GET', 'POST'])
 def newItem():
     if 'username' not in login_session:
-        return redirect('https://item-catalog-proj.herokuapp.com/login')
+        return redirect('/login')
     if request.method == 'GET':
         return render_template('newItem.html')
     elif request.method == 'POST':
@@ -291,8 +291,7 @@ def newItem():
         strippedDescription = description.strip()
         if strippedName == '' or strippedDescription == '':
             return redirect(
-                            """https://item-catalog-proj.
-                            herokuapp.com/catalog/new/""")
+                            """/catalog/new/""")
         category = db.session.query(Category) \
             .filter_by(name=category_name).one()
         category_id = category.id
@@ -306,7 +305,7 @@ def newItem():
         db.session.add(newItem)
         db.session.commit()
         flash('New Item %s Successfully Created' % newItem.name)
-        return redirect('https://item-catalog-proj.herokuapp.com/catalog/')
+        return redirect('/catalog/')
 
 
 # Show all items in a category
@@ -362,9 +361,7 @@ def showItem(category_id, item_id):
             methods=['GET', 'POST'])
 def editItem(category_id, item_id):
     if 'username' not in login_session:
-        return redirect("""
-                        https://item-catalog-proj.
-                        herokuapp.com/login""")
+        return redirect("""/login""")
     item = db.session.query(Item) \
         .filter_by(id=item_id, category_id=category_id).one()
     if item.user_id != login_session['user_id']:
@@ -387,7 +384,7 @@ def editItem(category_id, item_id):
         strippedDescription = description.strip()
         if strippedName == '' or strippedDescription == '':
             return redirect(
-                            'https://item-catalog-proj.herokuapp.com/catalog/'
+                            '/catalog/'
                             + str(category_id)+'/'+str(item_id)+'/edit/')
         category_name = request.form['category'].title()
         category = db.session.query(Category) \
@@ -402,7 +399,7 @@ def editItem(category_id, item_id):
         db.session.add(item)
         db.session.commit()
         flash('Item %s Successfully Edited' % item.name)
-        return redirect('https://item-catalog-proj.herokuapp.com/catalog/')
+        return redirect('/catalog/')
 
 
 # Delete a specific item
@@ -412,7 +409,7 @@ def editItem(category_id, item_id):
             methods=['GET', 'POST'])
 def deleteItem(category_id, item_id):
     if 'username' not in login_session:
-        return redirect('https://item-catalog-proj.herokuapp.com/login')
+        return redirect('/login')
     item = db.session.query(Item) \
         .filter_by(id=item_id, category_id=category_id).one()
     if item.user_id != login_session['user_id']:
@@ -429,7 +426,7 @@ def deleteItem(category_id, item_id):
         db.session.delete(item)
         db.session.commit()
         flash('%s Successfully Deleted' % item.name)
-        return redirect('https://item-catalog-proj.herokuapp.com/catalog/')
+        return redirect('/catalog/')
 
 
 if __name__ == '__main__':
