@@ -65,3 +65,9 @@ First, you will need to acquire google oauth2 credentials.
 <li>From the dashboard, go to credentials. Under the credentials tab, click on OAuth Consent Screen and fill in the necessary information. Now, return to the original credentials tab and click create credentials - OAuth client ID - Web Application. Now, fill in the javascript origins and the redirect URIs</li>
 <li>Download the client ID file, put it in the repo with the rest of the code, rename it is as client_secrets.json</li><li>Copy the actual client ID into the login.html file where it says <code>[your_client_id]</code></li>
 </ol>
+<h3>PostgreSQL Database</h3>
+Now, you need to create/fill a PostgreSQL database.
+<h4>Create Database</h4>
+Begin by creating a new user with a password. Enter the psql shell by running the <code>psql</code> command in bash. Then, run the psql command <code>CREATE USER new_user WITH PASSWORD 'my_new_password';</code> To create the database, run the command <code>CREATE DATABASE database_name OWNER <new_user>;</code>
+
+
