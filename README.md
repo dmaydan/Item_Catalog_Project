@@ -74,7 +74,7 @@ In order to create the database model, enter the python3 shell and run the follo
 <code>from app import db</code>
 <code>db.create_all()</code>
 <h4>Fill Database</h4>
-At the top of the <code>filldatabase.py</code> file, replace <code>[db_name]</code> with <code> 'postgresql://psql_username:psql_password@localhost/database_name'</code> Then, run <code>filldatabase.py</code> with python3.
+At the top of the <code>filldatabase.py</code> file, replace <code>[db_name]</code> with <code> postgresql://psql_username:psql_password@localhost/database_name</code> Then, run <code>filldatabase.py</code> with python3.
 <h4>Config File</h4>
 Finally, in the <code>config.py</code> file, make sure to give <code>SQLALCHEMY_DATABASE_URI</code> the path to the database as above.
 <h3>Run</h3>
