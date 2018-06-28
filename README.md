@@ -72,7 +72,6 @@ Begin by creating a new user with a password. Enter the psql shell by running th
 <h4>Create Database Model</h4>
 In order to create the database model, enter the python3 shell and run the following commands: 
 <code>from app import db</code>
-<br/>
 <code>db.create_all()</code>
 <h4>Fill Database</h4>
 At the top of the <code>filldatabase.py</code> file, replace <code>[db_name]</code> with <code> 'postgresql://psql_username:psql_password@localhost/database_name'</code> Then, run <code>filldatabase.py</code> with python3.
