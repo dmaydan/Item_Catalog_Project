@@ -59,7 +59,7 @@ After a user completes an action (login, logout, create/edit/delete item) and th
 <h2 id="run">Run your Own</h2>
 In order to actually run this website on your own, you need to take some setup steps.
 <h3>Requirements</h3>
-Make sure to install Flask, Flask-SQLAlchemy, SQLAlchemy, oauth2client, Flask-SSLify, httplib2 using <code>pip3</code>
+Make sure to install Flask, Flask-SQLAlchemy, SQLAlchemy, oauth2client, Flask-SSLify, and httplib2 using <code>pip3</code>.
 <h3>OAuth2</h3>
 First, you will need to acquire google oauth2 credentials.
 <ol>
