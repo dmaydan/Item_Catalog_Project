@@ -69,8 +69,12 @@ First, you will need to acquire google oauth2 credentials.
 Now, you need to create/fill a PostgreSQL database.
 <h4>Create Database</h4>
 Begin by creating a new user with a password. Enter the psql shell by running the <code>psql</code> command in bash. Then, run the psql command <code>CREATE USER new_user WITH PASSWORD 'my_new_password';</code> To create the database, run the command <code>CREATE DATABASE database_name OWNER new_user;</code>
+<h4>Create Database Model</h4>
+In order to create the database model, enter python3 shell and run the following commands: 
+<code>from app import db</code>
+<code>db.create_all()</code>
 <h4>Fill Database</h4>
-At the top of the <code>filldatabase.py</code> file, replace <code>[db_name]</code> with <code> 'postgresql://psql_username:psql_password@localhost/database_name'</code>
+At the top of the <code>filldatabase.py</code> file, replace <code>[db_name]</code> with <code> 'postgresql://psql_username:psql_password@localhost/database_name'</code> Then, run <code>filldatabase.py</code> with python3.
 <h4>Config File</h4>
 Finally, in the <code>config.py</code> file, make sure to give <code>SQLALCHEMY_DATABASE_URI</code> the path to the database as above.
 <h3>Run</h3>
