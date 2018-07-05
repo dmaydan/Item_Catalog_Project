@@ -14,7 +14,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_sslify import SSLify
-
+from flask_recaptcha import ReCaptcha
 
 app = Flask(__name__)
 sslify = SSLify(app)
@@ -22,6 +22,14 @@ CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Item-Catalog-Project"
 
+app.config.update(dict(
+    RECAPTCHA_ENABLED = True,
+    RECAPTCHA_SITE_KEY = "[enter_here]",
+    RECAPTCHA_SECRET_KEY = "[enter_here]",
+))
+
+recaptcha = ReCaptcha()
+recaptcha.init_app(app)
 # Connect to Database and create database session
 app.config.from_object(Config)
 db = SQLAlchemy(app)
@@ -106,6 +114,7 @@ def showLogin():
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
+
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
         response.headers['Content-Type'] = 'application/json'
@@ -284,28 +293,31 @@ def newItem():
     if request.method == 'GET':
         return render_template('newItem.html')
     elif request.method == 'POST':
-        name = request.form['name']
-        description = request.form['description']
-        category_name = request.form['category'].title()
-        strippedName = name.strip()
-        strippedDescription = description.strip()
-        if strippedName == '' or strippedDescription == '':
-            return redirect(
-                            """/catalog/new/""")
-        category = db.session.query(Category) \
-            .filter_by(name=category_name).one()
-        category_id = category.id
-        # Set up dummy user id since we do not have logins yet
-        user_id = login_session['user_id']
-        newItem = Item(
-                        name=name,
-                        description=description,
-                        category_id=category_id,
-                        user_id=user_id)
-        db.session.add(newItem)
-        db.session.commit()
-        flash('New Item %s Successfully Created' % newItem.name)
-        return redirect('/catalog/')
+        if not recaptcha.verify():
+            return redirect('/catalog/')
+        else:
+            name = request.form['name']
+            description = request.form['description']
+            category_name = request.form['category'].title()
+            strippedName = name.strip()
+            strippedDescription = description.strip()
+            if strippedName == '' or strippedDescription == '':
+                return redirect(
+                                """/catalog/new/""")
+            category = db.session.query(Category) \
+                .filter_by(name=category_name).one()
+            category_id = category.id
+            # Set up dummy user id since we do not have logins yet
+            user_id = login_session['user_id']
+            newItem = Item(
+                            name=name,
+                            description=description,
+                            category_id=category_id,
+                            user_id=user_id)
+            db.session.add(newItem)
+            db.session.commit()
+            flash('New Item %s Successfully Created' % newItem.name)
+            return redirect('/catalog/')
 
 
 # Show all items in a category
@@ -434,4 +446,5 @@ if __name__ == '__main__':
     app.run(
         host="0.0.0.0",
         port=port,
+        threaded=True
     )

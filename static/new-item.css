@@ -10,13 +10,13 @@
 	padding-right: 20px;
 	padding-left: 20px;
 }
-label, input, select {
+label, input, select, .captcha {
 	display: block;
 }
 label {
 	margin-bottom: 3px;
 }
-input, select {
+input, select, .captcha {
 	margin-bottom: 10px;
 }
 input[type=text] {
