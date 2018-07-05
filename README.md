@@ -10,7 +10,7 @@ The is my project submission for Udacity's Full Stack Web Developer nanodegree's
 <li><a href="#run">Run on your Own</a></li>
 </ol>
 <h2 id="demo">Demo</h2>
-A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com
+A live demo of the project hosted by heroku is avaliable at https://item-catalog-proj.herokuapp.com. Please give the page 20 seconds to startup because the free heroku web dyno goes to sleep after 30 minutes of inactivity.
 <h2 id="screenshots">Screenshots</h2>
 <h3>Logged Out</h3>
 <h4>Catalog</h4>
@@ -42,7 +42,7 @@ A live demo of the project hosted by heroku is avaliable at https://item-catalog
 <img src="readme_images/in_500.png" width="300"/>
 <h2 id="backend">Backend</h2>
 <h3>Server</h3>
-The server is built on the python web framework [Flask](http://flask.pocoo.org). 
+The server is built on the python web framework flask: http://flask.pocoo.org. 
 <h3>Database</h3>
 The website uses a postresql database with 3 tables: user, category, item. 
 <h3>Authentication</h3>
@@ -53,13 +53,13 @@ A user can only create an item if he/she is logged in, and a user can only edit 
 <h3>Responsive</h3>
 A media query is used to ensure that content looks great on all display sizes.
 <h3>CSS Grids</h3>
-The page is layed out with the CSS Grid
+The page is layed out with the CSS Grid.
 <h2 id="interactive">Interactive</h2>
 After a user completes an action (login, logout, create/edit/delete item) and the site redirects, a flash message is displayed to the user to confirm that his/her action was processed.
 <h2 id="run">Run your Own</h2>
 In order to actually run this website on your own, you need to take some setup steps.
 <h3>Requirements</h3>
-Make sure to install Flask, Flask-SQLAlchemy, SQLAlchemy, oauth2client, Flask-SSLify, and httplib2 using <code>pip3</code>.
+Make sure to install Flask, Flask-SQLAlchemy, SQLAlchemy, oauth2client, Flask-SSLify, flask_recaptcha, and httplib2 using <code>pip3</code>.
 <h3>OAuth2</h3>
 First, you will need to acquire google oauth2 credentials.
 <ol>
@@ -67,6 +67,8 @@ First, you will need to acquire google oauth2 credentials.
 <li>From the dashboard, go to credentials. Under the credentials tab, click on OAuth Consent Screen and fill in the necessary information. Now, return to the original credentials tab and click create credentials - OAuth client ID - Web Application. Now, fill in the javascript origins and the redirect URIs</li>
 <li>Download the client ID file, put it in the repo with the rest of the code, rename it is as client_secrets.json</li><li>Copy the actual client ID into the login.html file where it says <code>[your_client_id]</code></li>
 </ol>
+<h3>Captcha</h3>
+Now, you need to get get recaptcha v2 credentials from google. Find out how https://developers.google.com/recaptcha/intro. On lines, 27 and 28 in <code>app.py</code> enter your public site key and your private secret key.
 <h3>PostgreSQL Database</h3>
 Now, you need to create/fill a PostgreSQL database.
 <h4>Create Database</h4>
