@@ -42,7 +42,7 @@ A live demo of the project hosted by heroku is avaliable at https://item-catalog
 <img src="readme_images/in_500.png" width="300"/>
 <h2 id="backend">Backend</h2>
 <h3>Server</h3>
-The server is built on the python web framework [Flask](http://flask.pocoo.org). 
+The server is built on the python web framework flask: http://flask.pocoo.org. 
 <h3>Database</h3>
 The website uses a postresql database with 3 tables: user, category, item. 
 <h3>Authentication</h3>
@@ -53,7 +53,7 @@ A user can only create an item if he/she is logged in, and a user can only edit 
 <h3>Responsive</h3>
 A media query is used to ensure that content looks great on all display sizes.
 <h3>CSS Grids</h3>
-The page is layed out with the CSS Grid
+The page is layed out with the CSS Grid.
 <h2 id="interactive">Interactive</h2>
 After a user completes an action (login, logout, create/edit/delete item) and the site redirects, a flash message is displayed to the user to confirm that his/her action was processed.
 <h2 id="run">Run your Own</h2>
