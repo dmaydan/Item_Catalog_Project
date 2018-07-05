@@ -59,7 +59,7 @@ After a user completes an action (login, logout, create/edit/delete item) and th
 <h2 id="run">Run your Own</h2>
 In order to actually run this website on your own, you need to take some setup steps.
 <h3>Requirements</h3>
-Make sure to install Flask, Flask-SQLAlchemy, SQLAlchemy, oauth2client, Flask-SSLify, and httplib2 using <code>pip3</code>.
+Make sure to install Flask, Flask-SQLAlchemy, SQLAlchemy, oauth2client, Flask-SSLify, flask_recaptcha, and httplib2 using <code>pip3</code>.
 <h3>OAuth2</h3>
 First, you will need to acquire google oauth2 credentials.
 <ol>
@@ -67,6 +67,8 @@ First, you will need to acquire google oauth2 credentials.
 <li>From the dashboard, go to credentials. Under the credentials tab, click on OAuth Consent Screen and fill in the necessary information. Now, return to the original credentials tab and click create credentials - OAuth client ID - Web Application. Now, fill in the javascript origins and the redirect URIs</li>
 <li>Download the client ID file, put it in the repo with the rest of the code, rename it is as client_secrets.json</li><li>Copy the actual client ID into the login.html file where it says <code>[your_client_id]</code></li>
 </ol>
+<h3>Captcha</h3>
+Now, you need to get get recaptcha v2 credentials from google. Find out how https://developers.google.com/recaptcha/intro. On lines, 27 and 28 in <code>app.py</code> enter your public site key and your private secret key.
 <h3>PostgreSQL Database</h3>
 Now, you need to create/fill a PostgreSQL database.
 <h4>Create Database</h4>
