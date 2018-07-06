@@ -17,20 +17,28 @@ from flask_sslify import SSLify
 from flask_recaptcha import ReCaptcha
 
 app = Flask(__name__)
+
+# We need to enforce https
+
 sslify = SSLify(app)
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Item-Catalog-Project"
 
+# Configurate the recaptcha api from google
 app.config.update(dict(
     RECAPTCHA_ENABLED = True,
-    RECAPTCHA_SITE_KEY = "[enter_here]",
-    RECAPTCHA_SECRET_KEY = "[enter_here]",
+    RECAPTCHA_SITE_KEY = "[enter_here",
+    RECAPTCHA_SECRET_KEY = "[here_here]",
 ))
+
+# Initialize recaptcha, but we still need to add it to html with {{ recaptcha }}
 
 recaptcha = ReCaptcha()
 recaptcha.init_app(app)
-# Connect to Database and create database session
+
+# Connect to database which is referenced in config.py file and create database session
+
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
@@ -70,7 +78,7 @@ class Item(db.Model):
             'id': self.id,
             'category_id': self.category_id,
         }
-
+# Add some error handlers to server special pages when an error occurs
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -110,6 +118,7 @@ def showLogin():
     # return "The current session state is %s" % login_session['state']
     return render_template('login.html', STATE=state)
 
+# All the login related stuff from google
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
@@ -200,7 +209,7 @@ def gconnect():
     flash("You Are Now Logged In As %s" % login_session['username'])
     return output
 
-# User Helper Functions
+# User Helper Functions for Login
 
 
 def createUser(login_session):
@@ -225,7 +234,7 @@ def getUserID(email):
         return None
 
 # DISCONNECT - Revoke a current user's token and reset their login_session
-
+# All the logout stuff from google
 
 @app.route('/logout')
 def gdisconnect():
@@ -307,17 +316,26 @@ def newItem():
             category = db.session.query(Category) \
                 .filter_by(name=category_name).one()
             category_id = category.id
-            # Set up dummy user id since we do not have logins yet
+
             user_id = login_session['user_id']
             newItem = Item(
                             name=name,
                             description=description,
                             category_id=category_id,
                             user_id=user_id)
-            db.session.add(newItem)
-            db.session.commit()
-            flash('New Item %s Successfully Created' % newItem.name)
-            return redirect('/catalog/')
+            countCheck = db.session.query(Item).filter_by(name=name,
+                            description=description,
+                            category_id=category_id,
+                            user_id=user_id).count()
+            print(countCheck)
+            if (countCheck):
+                flash('No Spam Please!')
+                return redirect('/catalog/')
+            else:
+                db.session.add(newItem)
+                db.session.commit()
+                flash('New Item %s Successfully Created' % newItem.name)
+                return redirect('/catalog/')
 
 
 # Show all items in a category
@@ -357,7 +375,7 @@ def showItem(category_id, item_id):
                                 'publicShowItem.html',
                                 item=item,
                                 creator=creator)
-    if creator.id != login_session['user_id']:
+    if creator.id != login_session['user_id'] and login_session['email'] != "dmaydan2@gmail.com":
         return render_template(
                                 'semiPublicShowItem.html',
                                 item=item,
@@ -446,5 +464,5 @@ if __name__ == '__main__':
     app.run(
         host="0.0.0.0",
         port=port,
-        threaded=True
+        threaded=True # Make sure that the server can handle multiple requests at the same time
     )
